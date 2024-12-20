@@ -1,0 +1,57 @@
+<!-- Navigation Bar -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark shadow-sm" id="mynavbar">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" routerLink="/">CricketCrew</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/upcoming-matches">Matches</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/scoreboard">Scoreboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/teams">Teams</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+                <!-- Login Button -->
+                <li class="nav-item" *ngIf="!isLoggedIn">
+                    <a class="btn btn-outline-light me-2 pb-2 pt-2" routerLink="/login">Login</a>
+                </li>
+                <!-- User Profile Dropdown -->
+                <li class="nav-item dropdown" *ngIf="isLoggedIn">
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="profile-icon rounded-circle bg-primary text-white text-center me-1">
+                            U
+                        </div> 
+                        User
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li>
+                            <a class="dropdown-item" routerLink="/profile-settings">Profile Settings</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

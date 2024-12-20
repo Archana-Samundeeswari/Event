@@ -1,0 +1,73 @@
+<div class="container m-auto mt-3" [ngClass]="{'active': isActive}">
+  <!-- Registration Form -->
+  <div class="form-container sign-up">
+    <form (ngSubmit)="register($event)">
+      <h1>Create Account</h1>
+      <div class="social-icons">
+        <a href="#" class="icon google"><i class="fa-brands fa-google-plus"></i></a>
+        <a href="#" class="icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="icon github"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="icon linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+
+      </div>
+      <span>or use your email for registration</span>
+      <div class="row d-flex justify-content-between">
+        <div class="col-6">
+          <input type="username" placeholder="FirstName" [(ngModel)]="user.firstName" name="fistName" required>
+        </div>
+        <div class="col-5">
+          <input type="username" placeholder="LastName" [(ngModel)]="user.lastName" name="lastName" required>
+        </div>
+
+      </div>
+
+      <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required>
+      <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+
+      <select [(ngModel)]="user.role" name="role" id="role" required>
+        <option value="" disabled selected>Select Your Role</option>
+        <option value="ADMIN">Admin</option>
+        <option value="PLAYER">Player</option>
+        <option value="SPECTATOR">Spectator</option>
+      </select>
+      <button type="submit">Sign Up</button>
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    </form>
+  </div>
+
+  <!-- Login Form -->
+  <div class="form-container sign-in">
+    <form (ngSubmit)="login($event)">
+      <h1>Sign In</h1>
+      <div class="social-icons">
+        <a href="#" class="icon google"><i class="fa-brands fa-google-plus"></i></a>
+        <a href="#" class="icon facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="icon github"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="icon linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+
+      </div>
+      <span>or use your login details</span>
+      <input type="useremail" placeholder="Email" [(ngModel)]="user.email" name="email" required>
+      <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+      <a href="#">Forget Your Password?</a>
+      <button type="submit">Sign In</button>
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    </form>
+  </div>
+
+  <!-- Toggle Buttons -->
+  <div class="toggle-container">
+    <div class="toggle">
+      <div class="toggle-panel toggle-left">
+        <h1>Welcome Back!</h1>
+        <p>Enter your personal details to use all of site features</p>
+        <button (click)="toggleForms(false)" class="hidden">Sign In</button>
+      </div>
+      <div class="toggle-panel toggle-right">
+        <h1>Welcome, Friend!</h1>
+        <p>Enter your personal details to use all of site features</p>
+        <button (click)="toggleForms(true)" class="hidden">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="dashboard-container d-flex">
+
+    <aside class="sidebar bg-dark text-light shadow-sm">
+      <!-- Brand Logo -->
+      <div class="brand-logo text-center py-4 border-bottom">
+        <h2 class="text-warning fw-bold">CricketCrew</h2>
+      </div>
+      <!-- Navigation -->
+      <nav class="nav flex-column mt-3">
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/dashboard" routerLinkActive="active">
+          <i class="bi bi-speedometer2 me-2"></i> Dashboard
+        </a>
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/manage-users" routerLinkActive="active">
+          <i class="bi bi-person-badge me-2"></i> Users
+        </a>
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/manage-players" routerLinkActive="active">
+          <i class="bi bi-people-fill me-2"></i> Players
+        </a>
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/manage-teams" routerLinkActive="active">
+          <i class="bi bi-people me-2"></i> Teams
+        </a>
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/manage-tournaments" routerLinkActive="active">
+          <i class="bi bi-trophy me-2"></i> Tournaments
+        </a>
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/manage-matches" routerLinkActive="active">
+          <i class="bi bi-calendar-event me-2"></i> Matches
+        </a>
+        <a class="nav-link text-light px-3 py-2" routerLink="/admin/manage-settings" routerLinkActive="active">
+          <i class="bi bi-gear-fill me-2"></i> Settings
+        </a>
+      </nav>
+    </aside>
+  
+      <!-- Main Content -->
+      <main class="main-content flex-grow-1">
+        <!-- Header -->
+        <header class="header bg-light shadow-sm d-flex align-items-center justify-content-between px-4 py-2">
+          <h3 class="text-dark fw-bold m-0">Admin Dashboard</h3>
+          <div class="header-actions d-flex align-items-center">
+            <nav class="navbar navbar-expand-lg">
+              <ul class="navbar-nav ms-auto">
+                <!-- Login Button -->
+                <li class="nav-item" *ngIf="!isLoggedIn">
+                  <a class="btn btn-outline-dark btn-sm me-2" routerLink="/login">Login</a>
+                </li>
+                <!-- User Dropdown -->
+                <li class="nav-item dropdown" *ngIf="isLoggedIn">
+                  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="profile-icon rounded-circle bg-primary text-white text-center me-2">
+                     {{username | slice:0:1}}
+                    </div>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" routerLink="/profile-settings">Profile Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/" (click)="logout()">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+    
+        <!-- Dynamic Content -->
+        <section class="content bg-light p-4 mt-3 shadow rounded">
+          <router-outlet></router-outlet>
+        </section>
+      </main>
+  </div>
+    

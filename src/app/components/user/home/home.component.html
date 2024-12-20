@@ -1,0 +1,104 @@
+
+<!-- Header -->
+<header class="bg-primary text-white text-center py-5 shadow-lg">
+    <h1 class="display-4 fw-bold">Cricket Event Management System</h1>
+    <p class="lead mb-4">Where cricket meets excitement!</p>
+    <a routerLink="login" class="btn btn-light btn-lg px-4 py-2">Get Started</a>
+</header>
+
+<div class="container">
+    <!-- Upcoming Matches -->
+    <section id="upcoming-matches" class="my-5">
+        <h2 class="section-title text-center">Upcoming Matches</h2>
+        <div class="row g-4">
+            <div class="col-md-4" *ngFor="let match of upcomingMatches">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ match.teamA }} vs {{ match.teamB }}</h5>
+                        <p class="card-text">
+                            <strong>Date:</strong> {{ match.date }}<br />
+                            <strong>Time:</strong> {{ match.time }}<br />
+                            <strong>Venue:</strong> {{ match.venue }}
+                        </p>
+                        <a routerLink="/match/{{ match }}" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scoreboard -->
+    <section id="scoreboard" class="my-5">
+        <h2 class="section-title text-center">Live Scoreboard</h2>
+        <table class="table table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th>Match</th>
+                    <th>Score</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let score of liveScores">
+                    <td>{{ score.match }}</td>
+                    <td>{{ score.score }}</td>
+                    <td>{{ score.status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Teams Section -->
+    <section id="teams" class="my-5">
+        <h2 class="section-title text-center">Team Players</h2>
+        <div class="row g-4">
+            <div class="col-md-3" *ngFor="let player of teamPlayers">
+                <div class="card">
+                    <img src="{{ player.image }}" class="card-img-top" alt="Player Image" />
+                    <div class="card-body">
+                        <h5 class="card-title">{{ player.name }}</h5>
+                        <p class="card-text">
+                            <strong>Role:</strong> {{ player.role }}<br />
+                            <strong>Matches:</strong> {{ player.matches }}<br />
+                            <strong>Runs:</strong> {{ player.runs }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="my-5 text-center">
+        <h2 class="section-title">About Us</h2>
+        <p class="lead">
+            Cricket Event Management System (CEMS) is the ultimate platform for cricket enthusiasts. Whether you're a
+            spectator, player, or organizer, we've got you covered!
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="my-5">
+        <h2 class="section-title text-center">Contact Us</h2>
+        <form class="mt-4 mx-auto" style="max-width: 600px;">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Your Name" />
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Your Email" />
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </section>
+</div>
+
+<!-- Footer -->
+<footer class="bg-primary text-white text-center py-4">
+    <p>&copy; 2024 Cricket Event Management. All Rights Reserved.</p>
+</footer>

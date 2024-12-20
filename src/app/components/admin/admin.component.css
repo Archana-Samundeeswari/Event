@@ -1,0 +1,74 @@
+/* General Layout */
+*{
+  overflow: hidden;
+}
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 200px;
+    transition: all 0.3s;
+  }
+  .sidebar .nav-link {
+    color: #adb5bd;
+    padding: 15px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: #495057;
+    color: #ffffff;
+  }
+  .sidebar .brand-logo h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+  }
+  .header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    z-index: 1000;
+  }
+  .header h3{
+    font-size: 23px !important;
+  }
+  .content {
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  /* User Profile Icon */
+  .profile-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  
+  /* Mobile View (Responsive Sidebar) */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 0;
+      overflow: hidden;
+    }
+    .sidebar.active {
+      width: 250px;
+    }
+  }
+  
+
+
+
+  
